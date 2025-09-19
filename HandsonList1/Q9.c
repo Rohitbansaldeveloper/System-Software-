@@ -17,11 +17,11 @@ Date: 30th Aug, 2025.
 ============================================================================
 */
 
-#include <sys/types.h> // Import for open system call.
-#include <sys/stat.h>  // Import micros
-#include <fcntl.h>     // Import File Control
-#include <unistd.h>    // Import for read and write system call
-#include <stdio.h>     // Import for perrro and printf functions
+#include <sys/types.h>
+#include <sys/stat.h>  
+#include <fcntl.h>     
+#include <unistd.h>   
+#include <stdio.h>     
 #include <time.h>
 
 int main(int argc, char *argv[]){
