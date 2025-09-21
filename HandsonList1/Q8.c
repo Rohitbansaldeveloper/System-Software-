@@ -8,28 +8,44 @@ Description : Write a program to open a file in read only mode, read line by lin
 Date: 29th Aug, 2025.
 ============================================================================
 */
-#include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <fcntl.h>
-int main() {
-    int fd;
-    char array[200];
-    int x;
-    const char *st = "this is question 8 of hands-on-list 1";
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<fcntl.h>
 
-    fd = creat("fileq8.txt", 0644);
-    write(fd, st, strlen(st));
-    close(fd);
-    fd = open("fileq8.txt", O_RDONLY);
-    while ((x = read(fd, array, sizeof(array) - 1)) > 0) {
-        array[x] = '\0';
-        printf("%s",array);
-    }
+#define BUF_SIZE 1
 
-    close(fd);
-    return 0;
+int main(int argc , char *argv[]){
+	int fd ;
+	char c;
+	int n;
+
+	if(argc !=2){
+		write(2 , "Usage: ./q8_read_lines filename\n" , 32);
+		exit(1);
+	}
+
+	fd = open(argv[1] , O_RDONLY);
+	if(fd == -1){
+		perror("open faild");
+		exit(1);
+	}
+
+	while( n = read(fd , &c , BUF_SIZE) > 0){
+
+		write(1 , &c ,1);
+	}
+	if(n<0){
+		perror("read failed");
+	}
+	close(fd);
+	return 0;
 }
-/*
-Output:this is question 8 of hands-on-list 1
-*/
+
+/************************ Sample Output ******************************
+$ ./q8 q8test.txt
+Rohitbansal1
+rohitbansal2
+rohitbansal3
+rohitbansal4
+*********************************************************************/
