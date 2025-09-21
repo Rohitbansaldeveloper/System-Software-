@@ -21,7 +21,7 @@ int main(int argc , char *argv[]){
 	int n;
 
 	if(argc !=2){
-		write(2 , "Usage: ./q8_read_lines filename\n" , 32);
+		write(2 , "Usage: ./Q8_read_lines filename\n" , 32);
 		exit(1);
 	}
 
@@ -43,7 +43,7 @@ int main(int argc , char *argv[]){
 }
 
 /************************ Sample Output ******************************
-$ ./q8 q8test.txt
+$ ./Q8 test8.txt
 Rohitbansal1
 rohitbansal2
 rohitbansal3
